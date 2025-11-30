@@ -27,11 +27,6 @@ $produtos = $stmt->fetchAll(PDO::FETCH_ASSOC);
             <div class="product-grid">
                 <?php foreach ($produtos as $p): ?>
                     <div class="product-card">
-                        <?php 
-                            // Use uma imagem padrão se a URL estiver vazia
-                            $img_src = !empty($p['imagem_url']) ? htmlspecialchars($p['imagem_url']) : 'https://via.placeholder.com/250x250?text=Sem+Imagem';
-                        ?>
-                        <img src="<?= $img_src ?>" alt="<?= htmlspecialchars($p['nome']) ?>">
                         <h3><?= htmlspecialchars($p['nome']) ?></h3>
                         <p>R$ **<?= number_format($p['preco'], 2, ',', '.') ?>**</p>
                         <p><small><?= htmlspecialchars($p['descricao']) ?></small></p>
